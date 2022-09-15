@@ -33,7 +33,7 @@ const App = () => {
   const numClickHander = (e) => {
     e.preventDefault ();
     const value = e.target.innerHTML;
-    calc.AC = "";
+    
     if (removeSpaces(calc.num.length < 16)){
       setCalc({
         ...calc,
@@ -42,7 +42,8 @@ const App = () => {
           ? toLocalString(Number(removeSpaces(calc.num + value)))
           : toLocalString(calc.num + value),
         res: !calc.sign ? 0 : calc.res,
-        prevNum :calc.res,    //tar vare paa tidligere resultat            
+        prevNum :calc.res,    //tar vare paa tidligere resultat  
+        AC : "",          
       });
     } 
   };
@@ -73,7 +74,7 @@ const App = () => {
           calc.sign
         )
       ),
-      
+      AC : "", 
       num: 0,
     });
   };
@@ -100,7 +101,7 @@ const App = () => {
           Number(removeSpaces(calc.num)),
           calc.sign)),
         sign: "",
-        
+        AC : "", 
         num: 0,
       });
     };
@@ -123,6 +124,7 @@ const App = () => {
     num: (num /= Math.pow(100, 1)),
     res: (res /= Math.pow(100, 1)),
     sign: "",
+    AC : "", 
     });
   }
 
